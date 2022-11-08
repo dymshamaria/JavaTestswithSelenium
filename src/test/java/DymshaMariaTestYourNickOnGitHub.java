@@ -6,9 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-
-public class YourNickOnGitHubTest {
+public class DymshaMariaTestYourNickOnGitHub {
 
 //    TC_11_01
 //1.  Открыть базовую ссылку
