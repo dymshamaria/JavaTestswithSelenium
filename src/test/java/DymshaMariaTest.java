@@ -59,8 +59,6 @@ public class DymshaMariaTest {
     }
 
 
-
-
     //@Test
     //    public void testH2TagText_WhenSearchingCityCountry(){
     //        System.setProperty("webdriver.chrome.driver", "D:\\Java_05\\chromedriver_win32\\chromedriver.exe");
