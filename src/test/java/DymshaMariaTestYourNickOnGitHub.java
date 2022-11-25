@@ -26,9 +26,7 @@ public class DymshaMariaTestYourNickOnGitHub {
         driver.get(url);
         Thread.sleep(5000);
 
-        WebElement searchButtonInMenu = driver.findElement(
-                By.xpath("//li//a[text() = 'Guide']")
-        );
+        WebElement searchButtonInMenu = driver.findElement(By.xpath("//li//a[text() = 'Guide']"));
 
         searchButtonInMenu.click();
         Thread.sleep(1000);
@@ -62,26 +60,19 @@ public class DymshaMariaTestYourNickOnGitHub {
         driver.manage().window().maximize();
         Thread.sleep(2000);
 
-        WebElement menuImperial = driver.findElement(
-                By.xpath("//div[@class = 'option']/following-sibling::div")
-        );
+        WebElement menuImperial = driver.findElement(By.xpath("//div[@class = 'option']/following-sibling::div"));
         menuImperial.click();
         Thread.sleep(2000);
 
-        WebElement tempF = driver.findElement(
-                By.xpath("//div[@class = 'current-temp']/span")
-        );
+        WebElement tempF = driver.findElement(By.xpath("//div[@class = 'current-temp']/span"));
 
         String tempInF = tempF.getText();
         String actualResult = tempInF.substring((tempInF.length() - 2));
 
         Assert.assertTrue(tempF.getText().contains(fTempSymbol));
-
         Assert.assertEquals(actualResult, expectedResult);
 
         driver.quit();
-//      driver.close();
-
     }
 
 
@@ -105,15 +96,9 @@ public class DymshaMariaTestYourNickOnGitHub {
         driver.get(url);
         Thread.sleep(3000);
 
-        WebElement textElement = driver.findElement(
-                By.className("stick-footer-panel__description")
-        );
-        WebElement buttonAllowAll = driver.findElement(
-                By.xpath("//button[text()='Allow all']")
-        );
-        WebElement buttonManageCookies = driver.findElement(
-                By.xpath("//a[@href='/cookies-settings']")
-        );
+        WebElement textElement = driver.findElement(By.className("stick-footer-panel__description"));
+        WebElement buttonAllowAll = driver.findElement(By.xpath("//button[text()='Allow all']"));
+        WebElement buttonManageCookies = driver.findElement(By.xpath("//a[@href='/cookies-settings']"));
 
         Assert.assertEquals(buttonAllowAll.getText(), "Allow all");
         Assert.assertEquals(buttonManageCookies.getText(), "Manage cookies");
@@ -138,36 +123,28 @@ public class DymshaMariaTestYourNickOnGitHub {
 
         driver.get(url);
         driver.manage().window().maximize();
+        
         Thread.sleep(5000);
-        WebElement supportDropdown = driver.findElement(
-                By.xpath("//div[@id='support-dropdown']")
-        );
-
+        
+        WebElement supportDropdown = driver.findElement(By.xpath("//div[@id='support-dropdown']"));
         supportDropdown.click();
+        
         Thread.sleep(5000);
 
-        WebElement checkIfTextFAQIsPresent = driver.findElement(
-                By.xpath("//ul//li//a[@href='/faq']")
-        );
+        WebElement checkIfTextFAQIsPresent = driver.findElement(By.xpath("//ul//li//a[@href='/faq']"));
+        
         String actualResultIfTextFAQIsPresent = checkIfTextFAQIsPresent.getText();
-        System.out.println(actualResultIfTextFAQIsPresent);
+
+        WebElement checkIfTextHowToStartIsPresent = driver.findElement(By.xpath("//li//li//a[@href = '/appid']"));
+        
+        String actualResultIfTextHowToStartIsPresent = checkIfTextHowToStartIsPresent.getText();
+
+        WebElement checkIfTextAskAQuestionIsPresent = driver.findElement(By.xpath("//li//li//a[@href = 'https://home.openweathermap.org/questions']"));
+        
+        String actualResultIfTextAskAQuestionIsPresent = checkIfTextAskAQuestionIsPresent.getText();  
 
         Assert.assertEquals(actualResultIfTextFAQIsPresent, expectedResultFAQ);
-
-        WebElement checkIfTextHowToStartIsPresent = driver.findElement(
-                By.xpath("//li//li//a[@href = '/appid']")
-        );
-        String actualResultIfTextHowToStartIsPresent = checkIfTextHowToStartIsPresent.getText();
-        System.out.println(actualResultIfTextHowToStartIsPresent);
-
         Assert.assertEquals(actualResultIfTextHowToStartIsPresent, expectedResultHowToStart);
-
-        WebElement checkIfTextAskAQuestionIsPresent = driver.findElement(
-                By.xpath("//li//li//a[@href = 'https://home.openweathermap.org/questions']")
-        );
-        String actualResultIfTextAskAQuestionIsPresent = checkIfTextAskAQuestionIsPresent.getText();
-        System.out.println(actualResultIfTextAskAQuestionIsPresent);
-
         Assert.assertEquals(actualResultIfTextAskAQuestionIsPresent, expectedResultAskAQuestion);
 
         driver.quit();
@@ -194,17 +171,16 @@ public class DymshaMariaTestYourNickOnGitHub {
 
         driver.get(url);
         driver.manage().window().maximize();
+        
         Thread.sleep(2000);
 
-        WebElement searchSupportMenu = driver.findElement(
-                By.xpath("//div[@id = 'support-dropdown']")
-        );
+        WebElement searchSupportMenu = driver.findElement(By.xpath("//div[@id = 'support-dropdown']"));
+        
         Thread.sleep(2000);
         searchSupportMenu.click();
 
-        WebElement searchAskQuestion = driver.findElement(
-                By.xpath("//li//a[text()='Ask a question']")
-        );
+        WebElement searchAskQuestion = driver.findElement(By.xpath("//li//a[text()='Ask a question']"));
+        
         Thread.sleep(2000);
         searchAskQuestion.click();
 
@@ -214,55 +190,47 @@ public class DymshaMariaTestYourNickOnGitHub {
                 driver.switchTo().window(windowsHandle);
                 break;
             }
-        }
+      }
 
-        WebElement searchEmailField = driver.findElement(
-                By.xpath("//input[@id='question_form_email']")
-        );
+        WebElement searchEmailField = driver.findElement(By.xpath("//input[@id='question_form_email']"));
         Thread.sleep(2000);
         searchEmailField.click();
         searchEmailField.sendKeys(eMail);
 
-
-        WebElement searchSubjectField = driver.findElement(
-                By.xpath("//select[@id='question_form_subject']")
-        );
+        WebElement searchSubjectField = driver.findElement(By.xpath("//select[@id='question_form_subject']"));
+        
         Thread.sleep(2000);
         searchSubjectField.click();
 
-        WebElement searchSubjectFieldText = driver.findElement(
-                By.xpath("//select[@id='question_form_subject']//option[7]")
-        );
+        WebElement searchSubjectFieldText = driver.findElement(By.xpath("//select[@id='question_form_subject']//option[7]"));
+        
         Thread.sleep(2000);
         searchSubjectFieldText.click();
+        
         Thread.sleep(2000);
         searchSubjectField.click();
 
 
-        WebElement searchMessageField = driver.findElement(
-                By.xpath("//textarea[@id='question_form_message']")
-        );
+        WebElement searchMessageField = driver.findElement(By.xpath("//textarea[@id='question_form_message']"));
+        
         Thread.sleep(2000);
         searchMessageField.click();
         searchMessageField.sendKeys(message);
 
-        WebElement searchSubmitButton = driver.findElement(
-                By.xpath("//div[@class='col-sm-8']//input[@type='submit']")
-        );
+        WebElement searchSubmitButton = driver.findElement(By.xpath("//div[@class='col-sm-8']//input[@type='submit']"));
+        
         Thread.sleep(2000);
         searchSubmitButton.click();
 
 
-        WebElement searchCaptchaMassage = driver.findElement(
-                By.xpath("//div[@class='col-sm-8']//input[@type='submit']")
-        );
+        WebElement searchCaptchaMassage = driver.findElement(By.xpath("//div[@class='col-sm-8']//input[@type='submit']"));
+        
         String actualResult = searchCaptchaMassage.getText();
 
         Assert.assertEquals(actualResult, expectedResult);
 
         driver.quit();
-//            driver.close();
-    }
+      }
 
 //    TC_11_06
 //1.  Открыть базовую ссылку
@@ -291,9 +259,7 @@ public class DymshaMariaTestYourNickOnGitHub {
         Thread.sleep(2000);
         driver.manage().window().maximize();
 
-        WebElement clickOnSupport = driver.findElement(
-                By.xpath("//div[@id = 'support-dropdown']")
-        );
+        WebElement clickOnSupport = driver.findElement(By.xpath("//div[@id = 'support-dropdown']"));
         Thread.sleep(2000);
         clickOnSupport.click();
 
@@ -301,9 +267,8 @@ public class DymshaMariaTestYourNickOnGitHub {
         String originalWindow = driver.getWindowHandle();
         Thread.sleep(2000);
 
-        WebElement selectSubmenu_AskQuestion = driver.findElement(
-                By.xpath("//li//a[text()='Ask a question']")
-        );
+        WebElement selectSubmenu_AskQuestion = driver.findElement(By.xpath("//li//a[text()='Ask a question']"));
+        
         Thread.sleep(2000);
         selectSubmenu_AskQuestion.click();
 
@@ -315,48 +280,40 @@ public class DymshaMariaTestYourNickOnGitHub {
             }
         }
 
-        WebElement enterSubject = driver.findElement(
-                By.xpath("//select[@id='question_form_subject']")
-        );
+        WebElement enterSubject = driver.findElement(By.xpath("//select[@id='question_form_subject']"));
+        
         Thread.sleep(2000);
         enterSubject.click();
         enterSubject.sendKeys(subject);
 
-        WebElement enterMessage = driver.findElement(
-                By.xpath("//textarea[@id='question_form_message']")
-        );
+        WebElement enterMessage = driver.findElement(By.xpath("//textarea[@id='question_form_message']"));
+        
         Thread.sleep(2000);
         enterMessage.click();
         enterMessage.sendKeys(message);
 
         String window2 = driver.getWindowHandle();
 
-        driver.switchTo().frame(driver.findElement(
-                        By.xpath("//iframe[@title='reCAPTCHA']")
-        ));
+        driver.switchTo().frame(driver.findElement(By.xpath("//iframe[@title='reCAPTCHA']")));
 
-        WebElement enterCaptcha = driver.findElement(
-                By.xpath("//div[@class='rc-anchor-center-container']")
-        );
+        WebElement enterCaptcha = driver.findElement(By.xpath("//div[@class='rc-anchor-center-container']"));
+        
         enterCaptcha.click();
         Thread.sleep(7000);
 
         driver.switchTo().window(window2);
 
-        WebElement pressSubmit = driver.findElement(
-                By.xpath("//div[@class='col-sm-8']//input[@type='submit']")
-        );
+        WebElement pressSubmit = driver.findElement(By.xpath("//div[@class='col-sm-8']//input[@type='submit']"));
+        
         Thread.sleep(2000);
         pressSubmit.click();
 
-        WebElement confirmErrorEmail = driver.findElement(
-                By.xpath("//span[@class ='help-block']")
-        );
+        WebElement confirmErrorEmail = driver.findElement(By.xpath("//span[@class ='help-block']"));
         String actualResult = confirmErrorEmail.getText();
 
         Assert.assertEquals(actualResult, expectedResult);
         driver.quit();
-    }
+      }
 
 //    TC_11_07
 //1.  Открыть базовую ссылку
@@ -376,9 +333,8 @@ public class DymshaMariaTestYourNickOnGitHub {
         driver.get(url);
         Thread.sleep(2000);
 
-        WebElement clickOnImperial = driver.findElement(
-                By.xpath("//div[text()='Imperial: °F, mph']")
-        );
+        WebElement clickOnImperial = driver.findElement(By.xpath("//div[text()='Imperial: °F, mph']"));
+        
         clickOnImperial.click();
         Thread.sleep(2000);
 
@@ -388,17 +344,14 @@ public class DymshaMariaTestYourNickOnGitHub {
         clickOnMetric.click();
         Thread.sleep(2000);
 
-        String tempC = driver.findElement(
-                By.xpath("//span[@class = 'heading']")
-        ).getText();
+        String tempC = driver.findElement(By.xpath("//span[@class = 'heading']")).getText();
 
         Boolean actualResult = tempC.contains(temp);
-//        Boolean expectedResult = tempC.contains(temp);
 
         Assert.assertTrue(actualResult);
 
         driver.quit();
-    }
+      }
 
 //
 //    TC_11_08
@@ -417,9 +370,7 @@ public class DymshaMariaTestYourNickOnGitHub {
         driver.get(url);
         Thread.sleep(2000);
 
-        WebElement clickOnLogo = driver.findElement(
-                By.xpath("//img[@src= '/themes/openweathermap/assets/img/logo_white_cropped.png']")
-        );
+        WebElement clickOnLogo = driver.findElement(By.xpath("//img[@src= '/themes/openweathermap/assets/img/logo_white_cropped.png']"));
         clickOnLogo.click();
         Thread.sleep(2000);
 
@@ -428,7 +379,6 @@ public class DymshaMariaTestYourNickOnGitHub {
         Assert.assertEquals(actualResult, expectedResult);
 
         driver.quit();
-
     }
 
 //    TC_11_09
@@ -452,12 +402,12 @@ public class DymshaMariaTestYourNickOnGitHub {
         driver.get(url);
         Thread.sleep(2000);
 
-        WebElement clickSearchCity = driver.findElement(
-                By.xpath("//input[@placeholder= 'Search city']")
-        );
+        WebElement clickSearchCity = driver.findElement(By.xpath("//input[@placeholder= 'Search city']"));
+        
         clickSearchCity.click();
         clickSearchCity.sendKeys(expectedResultCity);
         clickSearchCity.sendKeys(Keys.ENTER);
+        
         Thread.sleep(2000);
 
         String strUrl = driver.getCurrentUrl();
@@ -472,15 +422,12 @@ public class DymshaMariaTestYourNickOnGitHub {
         Boolean expectedResult = strUrl.contains(searchValue1) && strUrl.contains(searchValue2);
         Assert.assertEquals(actualResultStrUrl, expectedResult);
 
-        String actualResultSearchBar = driver.findElement(
-                By.xpath("//input[@class]")
-        ).getAttribute("value");
+        String actualResultSearchBar = driver.findElement(By.xpath("//input[@class]")).getAttribute("value");
 
         Assert.assertEquals(actualResultSearchBar,expectedResultCity);
 
         driver.quit();
-
-        }
+      }
 
 //    TC_11_10
 //1.  Открыть базовую ссылку
@@ -499,9 +446,7 @@ public class DymshaMariaTestYourNickOnGitHub {
         driver.get(url);
         Thread.sleep(2000);
 
-        WebElement clickMenuApi = driver.findElement(
-                By.xpath("//div[@id='desktop-menu']//ul//li//a[text() = 'API']")
-        );
+        WebElement clickMenuApi = driver.findElement(By.xpath("//div[@id='desktop-menu']//ul//li//a[text() = 'API']"));
         clickMenuApi.click();
 
         int actualResultOrangeButton = driver.findElements(
@@ -512,12 +457,6 @@ public class DymshaMariaTestYourNickOnGitHub {
 
         driver.quit();
     }
-
-
-
-
-
-
-    }
+ }
 
 
