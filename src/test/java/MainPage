@@ -1,0 +1,70 @@
+package old_tests;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import base.BaseTest;
+import pages.MainPage;
+
+
+public class Maria_Dymsha_Test extends BaseTest {
+
+    @Test
+    public void testH2TagText_WhenSearchingCityCountry_MariaDymsha1() {
+        final String cityName = "Paris";
+        final String expectedCityCountryNames = "Paris, FR";
+
+        openBaseURL();
+
+        MainPage mainPage = new MainPage(getDriver());
+
+        final String oldCityCountryName = mainPage.getCityCountryName();
+
+        mainPage.clickSearchCityField();
+        mainPage.inputSearchCriteria(cityName);
+        mainPage.clickSearchButton();
+        mainPage.clickParisInDropDownList();
+        mainPage.waitForCityCountryNameChanged(oldCityCountryName);
+
+        String newCityCountryNames = mainPage.getCityCountryName();
+
+        Assert.assertEquals(newCityCountryNames, expectedCityCountryNames);
+    }
+
+    @Test
+    public void testH2TagText_WhenSearchingCityCountry_MariaDymsha2() {
+        final String cityName = "Paris";
+        final String expectedCityCountryNames = "Paris, FR";
+
+        openBaseURL();
+
+        MainPage mainPage = new MainPage(getDriver());
+
+        final String oldCityCountryName = mainPage.getCityCountryName();
+
+        String newCityCountryNames = mainPage
+                .clickSearchCityField()
+                .inputSearchCriteria(cityName)
+                .clickSearchButton()
+                .clickParisInDropDownList()
+                .waitForCityCountryNameChanged(oldCityCountryName)
+                .getCityCountryName();
+
+        Assert.assertEquals(newCityCountryNames, expectedCityCountryNames);
+    }
+
+
+    @Test
+    public void testOpenWeatherStartPageOpened_MariaDymsha3() {
+        final String expectedResultTitle = "Сurrent weather and forecast - OpenWeatherMap";
+        final String expectedResultUrl = "https://openweathermap.org/";
+
+        openBaseURL();
+
+        MainPage mainPage = new MainPage(getDriver());
+
+        final String actualResultTitle = mainPage.getTitle();
+        final String actualResultUrl = mainPage.getCurrentURL();
+
+        Assert.assertEquals(actualResultTitle, expectedResultTitle);
+        Assert.assertEquals(actualResultUrl, expectedResultUrl);
+    }
+}
