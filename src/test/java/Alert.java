@@ -19,6 +19,7 @@ public class Main {
         try {
 
             driver.get("https://127.0.0.1:5500/index.html");
+            
             Thread.sleep(5000);
 
             WebElement element = driver.findElement(By.id("a"));
@@ -33,11 +34,11 @@ public class Main {
             element2.click();
 
             Alert prompt = wait.until(alertIsPresent());
-
             prompt.sendKeys("Super !!");
             prompt.accept();
 
             Alert alert2 = wait.until(alertIsPresent());
+            
             Thread.sleep(4000);
             alert2.accept();
 
