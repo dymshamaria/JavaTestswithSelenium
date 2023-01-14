@@ -24,6 +24,7 @@ public class DymshaMariaTest {
         String expectedResult = "Paris, FR";
 
         driver.get(url);
+        
         Thread.sleep(5000);
 
         WebElement searchCityField = driver.findElement(
@@ -41,10 +42,10 @@ public class DymshaMariaTest {
                 By.xpath("//ul[@class = 'search-dropdown-menu']/li/span[text() = 'Paris, FR ']"));
         parisFRChoiceInDropdownMenu.click();
 
-        WebElement h2CityCountryHeader = driver.findElement(
-                By.xpath("//div[@id = 'weather-widget']//h2"));
+        WebElement h2CityCountryHeader = driver.findElement(By.xpath("//div[@id = 'weather-widget']//h2"));
 
         Thread.sleep(2000);
+        
         String actualResult = h2CityCountryHeader.getText();
 
         Assert.assertEquals(expectedResult, actualResult);
