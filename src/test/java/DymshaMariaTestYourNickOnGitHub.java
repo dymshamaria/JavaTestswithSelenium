@@ -150,7 +150,6 @@ public class DymshaMariaTestYourNickOnGitHub {
         driver.quit();
     }
 
-
 //        TC_11_05
 //        1. Открыть базовую ссылку
 //        2. Нажать пункт меню Support → Ask a question
@@ -210,7 +209,6 @@ public class DymshaMariaTestYourNickOnGitHub {
         Thread.sleep(2000);
         searchSubjectField.click();
 
-
         WebElement searchMessageField = driver.findElement(By.xpath("//textarea[@id='question_form_message']"));
         
         Thread.sleep(2000);
@@ -221,7 +219,6 @@ public class DymshaMariaTestYourNickOnGitHub {
         
         Thread.sleep(2000);
         searchSubmitButton.click();
-
 
         WebElement searchCaptchaMassage = driver.findElement(By.xpath("//div[@class='col-sm-8']//input[@type='submit']"));
         
@@ -262,7 +259,6 @@ public class DymshaMariaTestYourNickOnGitHub {
         WebElement clickOnSupport = driver.findElement(By.xpath("//div[@id = 'support-dropdown']"));
         Thread.sleep(2000);
         clickOnSupport.click();
-
 
         String originalWindow = driver.getWindowHandle();
         Thread.sleep(2000);
@@ -353,7 +349,7 @@ public class DymshaMariaTestYourNickOnGitHub {
         driver.quit();
       }
 
-//
+
 //    TC_11_08
 //1.  Открыть базовую ссылку
 //2.  Нажать на лого компании
@@ -458,5 +454,3 @@ public class DymshaMariaTestYourNickOnGitHub {
         driver.quit();
     }
  }
-
-
