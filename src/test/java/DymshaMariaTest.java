@@ -27,19 +27,16 @@ public class DymshaMariaTest {
         
         Thread.sleep(5000);
 
-        WebElement searchCityField = driver.findElement(
-                By.xpath("//div[@id = \"weather-widget\"]//input[@placeholder=\"Search city\"]"));
+        WebElement searchCityField = driver.findElement(By.xpath("//div[@id = \"weather-widget\"]//input[@placeholder=\"Search city\"]"));
         searchCityField.click();
         searchCityField.sendKeys(cityName);
 
-        WebElement searchButton = driver.findElement(
-                By.xpath("//div//button[@type = \"submit\"]"));
+        WebElement searchButton = driver.findElement(By.xpath("//div//button[@type = \"submit\"]"));
         searchButton.click();
 
         Thread.sleep(1000);
 
-        WebElement parisFRChoiceInDropdownMenu = driver.findElement(
-                By.xpath("//ul[@class = 'search-dropdown-menu']/li/span[text() = 'Paris, FR ']"));
+        WebElement parisFRChoiceInDropdownMenu = driver.findElement(By.xpath("//ul[@class = 'search-dropdown-menu']/li/span[text() = 'Paris, FR ']"));
         parisFRChoiceInDropdownMenu.click();
 
         WebElement h2CityCountryHeader = driver.findElement(By.xpath("//div[@id = 'weather-widget']//h2"));
@@ -47,9 +44,8 @@ public class DymshaMariaTest {
         Thread.sleep(2000);
         
         String actualResult = h2CityCountryHeader.getText();
-
         Assert.assertEquals(expectedResult, actualResult);
 
         driver.quit();
     }
-}
+)
