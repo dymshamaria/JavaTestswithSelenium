@@ -41,7 +41,6 @@ public class DymshaMariaTestYourNickOnGitHub {
         driver.close();
     }
 
-
     //    TC_11_02
     //1.  Открыть базовую ссылку
     //2.  Нажать на единицы измерения Imperial: °F, mph
@@ -75,7 +74,6 @@ public class DymshaMariaTestYourNickOnGitHub {
         driver.quit();
     }
 
-
 //       TC_11_03
 //1.     Открыть базовую ссылку
 //2.     Подтвердить, что внизу страницы есть панель с текстом “We use cookies which are essential for the site to work.
@@ -107,9 +105,9 @@ public class DymshaMariaTestYourNickOnGitHub {
         driver.quit();
     }
 
-//    TC_11_04
-//1.  Открыть базовую ссылку
-//2.  Подтвердить, что в меню Support есть 3 подменю с названиями “FAQ”, “How to start” и “Ask a question”
+    //    TC_11_04
+    //1.  Открыть базовую ссылку
+    //2.  Подтвердить, что в меню Support есть 3 подменю с названиями “FAQ”, “How to start” и “Ask a question”
 
     @Test
     public void testSupportHaveThreeButton() throws InterruptedException {
@@ -189,7 +187,7 @@ public class DymshaMariaTestYourNickOnGitHub {
                 driver.switchTo().window(windowsHandle);
                 break;
             }
-      }
+        }
 
         WebElement searchEmailField = driver.findElement(By.xpath("//input[@id='question_form_email']"));
         Thread.sleep(2000);
@@ -229,21 +227,20 @@ public class DymshaMariaTestYourNickOnGitHub {
         driver.quit();
       }
 
-//    TC_11_06
-//1.  Открыть базовую ссылку
-//2.  Нажать пункт меню Support → Ask a question
-//3.  Оставить значение по умолчанию в checkbox Are you an OpenWeather user?
-//4. Оставить пустым поле Email
-//5. Заполнить поля  Subject, Message
-//6. Подтвердить CAPTCHA
-//7. Нажать кнопку Submit
-//8. Подтвердить, что в поле Email пользователю будет показана ошибка “can't be blank”
+    //    TC_11_06
+    //1.  Открыть базовую ссылку
+    //2.  Нажать пункт меню Support → Ask a question
+    //3.  Оставить значение по умолчанию в checkbox Are you an OpenWeather user?
+    //4. Оставить пустым поле Email
+    //5. Заполнить поля  Subject, Message
+    //6. Подтвердить CAPTCHA
+    //7. Нажать кнопку Submit
+    //8. Подтвердить, что в поле Email пользователю будет показана ошибка “can't be blank”
 
     @Test
     public void testConfirmErrorInEmailField() throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "D:\\Java_05\\chromedriver_win32\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
-
 
         String url = "https://openweathermap.org/";
         String subject = "Other";
@@ -311,14 +308,14 @@ public class DymshaMariaTestYourNickOnGitHub {
         driver.quit();
       }
 
-//    TC_11_07
-//1.  Открыть базовую ссылку
-//2.  Нажать на единицы измерения Imperial: °F, mph
-//3.  Нажать на единицы измерения Metric: °C, m/s
-//4.  Подтвердить, что в результате этих действий, единицы измерения температуры изменились с F на С
+      //    TC_11_07
+      //1.  Открыть базовую ссылку
+      //2.  Нажать на единицы измерения Imperial: °F, mph
+      //3.  Нажать на единицы измерения Metric: °C, m/s
+      //4.  Подтвердить, что в результате этих действий, единицы измерения температуры изменились с F на С
 
-    @Test
-    public void testChangingTemperatureValues() throws InterruptedException {
+        @Test
+        public void testChangingTemperatureValues() throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "D:\\Java_05\\chromedriver_win32\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -446,8 +443,7 @@ public class DymshaMariaTestYourNickOnGitHub {
         clickMenuApi.click();
 
         int actualResultOrangeButton = driver.findElements(
-                By.xpath("//a[contains(@class, 'btn_block orange round') " +
-                        "or contains(@class, 'ow-btn round btn-orange') ]")).size();
+                By.xpath("//a[contains(@class, 'btn_block orange round') " + "or contains(@class, 'ow-btn round btn-orange') ]")).size();
 
         Assert.assertEquals(actualResultOrangeButton, expectedResult);
 
