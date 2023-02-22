@@ -29,7 +29,9 @@ public class AllTest extends BaseTest {
     public void testH2TagText_WhenSearchingCityCountry() {
         final String cityName = "Paris";
         final String expectedCityCountryNames = "Paris, FR";
+        
         openBaseURL();
+        
         final String oldH2Header = getText(H2_CITY_COUNTRY_HEADER);
         click(SEARCH_CITY_FIELD);
         input(cityName, SEARCH_CITY_FIELD);
@@ -37,19 +39,21 @@ public class AllTest extends BaseTest {
         waitElementToBeVisible(SEARCH_DROPDOWN_MENU);
         click(PARIS_FR_CHOICE_IN_DROPDOWN_MENU);
         waitTextToBeChanged(H2_CITY_COUNTRY_HEADER, oldH2Header);
+        
         String actualCityCountryNames = getText(H2_CITY_COUNTRY_HEADER);
         Assert.assertEquals(actualCityCountryNames, expectedCityCountryNames);
     }
 
     @Test
     public void testOpenWeatherStartPageOpened() {
-        public void testOpenWeatherStartPageOpened () {
             String expectedResultTitle = "Сurrent weather and forecast - OpenWeatherMap";
             String expectedResultUrl = "https://openweathermap.org/";
 
             openBaseURL();
+            
             String actualResultTitle = getTitle();
             String actualResultUrl = getCurrentURL();
+            
             Assert.assertEquals(actualResultTitle, expectedResultTitle);
             Assert.assertEquals(actualResultUrl, expectedResultUrl);
         }
